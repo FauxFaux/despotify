@@ -1,0 +1,11 @@
+*.obj
+*.lib
+*.pdb
+*.dep
+*.sln
+*.suo
+*.vc*
+*.opensdf
+*.sdf
+Debug
+ipch

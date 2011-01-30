@@ -6,7 +6,11 @@
 #ifndef DESPOTIFY_XML_H
 #define DESPOTIFY_XML_H
 
+#ifndef _MSC_VER
 #include <stdbool.h>
+#else
+#include "wincludes.h"
+#endif
 
 struct playlist* xml_parse_playlist(struct playlist* pl,
                                          unsigned char* xml,

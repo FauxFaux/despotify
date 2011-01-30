@@ -6,7 +6,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#ifndef _MSC_VER
 #include <unistd.h>
+#else
+#include "wincludes.h"
+#endif
 #include <pthread.h>
 #include <assert.h>
 

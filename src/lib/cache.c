@@ -1,4 +1,8 @@
+#ifndef _MSC_VER
 #include <dirent.h>
+#else
+#include "wincludes.h"
+#endif
 #include <errno.h>
 #include <limits.h>
 #include <stdio.h>

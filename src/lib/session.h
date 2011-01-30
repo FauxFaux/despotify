@@ -7,7 +7,11 @@
 #define DESPOTIFY_SESSION_H
 
 #include <pthread.h>
+#ifndef _MSC_VER
 #include <stdbool.h>
+#else
+#include "wincludes.h"
+#endif
 #include <openssl/dh.h>
 #include <openssl/rsa.h>
 

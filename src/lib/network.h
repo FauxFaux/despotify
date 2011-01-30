@@ -8,7 +8,7 @@
 #ifndef DESPOTIFY_NETWORK_H
 #define DESPOTIFY_NETWORK_H
 
-#ifdef __MINGW32__
+#if defined(__MINGW32__) || defined(_MSC_VER)
 #define __use_winsock__
 #else
 #define __use_posix__

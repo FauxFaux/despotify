@@ -4,8 +4,12 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
+#ifndef _MSC_VER
 #include <sys/time.h>
 #include <unistd.h>
+#else
+#include "wincludes.h"
+#endif
 #include <zlib.h>
 
 #include "aes.h"

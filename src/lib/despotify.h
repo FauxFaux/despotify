@@ -2,7 +2,11 @@
 #define LIBDESPOTIFY_H
 
 #include <pthread.h>
+#ifndef _MSC_VER
 #include <stdbool.h>
+#else
+#include "wincludes.h"
+#endif
 #include <time.h>
 
 #define STRING_LENGTH 256

@@ -1,7 +1,11 @@
 #ifndef _DESPOTIFY_CACHE_H_
 #define _DESPOTIFY_CACHE_H_
 
+#ifndef _MSC_VER
 #include <stdbool.h>
+#else
+#include "wincludes.h"
+#endif
 
 bool cache_init();
 void cache_clear();

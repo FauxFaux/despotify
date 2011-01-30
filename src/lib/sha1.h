@@ -10,6 +10,7 @@
 #define _SHA1_H
 
 #include <sys/types.h>
+#include "wincludes.h"
 
 typedef struct {
     u_int32_t state[5];
