@@ -1,0 +1,14 @@
+CC = cl /c /nologo /EHsc /MD /Os /Zi /D_UNICODE /DUNICODE /W1 /Oi /GL /GS /Gy
+MSVCLINK = /OPT:REF /OPT:ICF
+
+all: libdespotify
+
+libdespotify: aes.obj auth.obj buf.obj cache.obj channel.obj commands.obj dns.obj ezxml.obj handlers.obj keyexchange.obj packet.obj puzzle.obj session.obj shn.obj sndqueue.obj util.obj network.obj despotify.obj sha1.obj hmac.obj xml.obj
+	lib *.obj
+
+clean:
+	del *.obj
+
+cleanall:
+	del *.lib
+	del *.pdb
