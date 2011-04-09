@@ -12,3 +12,11 @@ lib
 !lib/
 buildinf.h
 rehash.time
+stamp-h1
+Makefile
+.deps
+config.*
+config_types.h
+libtool
+.libs
+*.la
