@@ -20,6 +20,8 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <string.h>
 #include "shn.h"
 
+#define N SHN_HEADER_N
+
 /*
  * FOLD is how many register cycles need to be performed after combining the
  * last byte of key and non-linear feedback, before every byte depends on every

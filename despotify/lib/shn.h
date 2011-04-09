@@ -24,19 +24,23 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <stdint.h>
 #endif
 
-#define N 16
+#define SHN_HEADER_N 16
 #define WORDSIZE 32
-#define UCHAR unsigned char
 
-#if __STDC_VERSION__ >= 199901
-#define WORD uint32_t
-#define WORD_MAX UINT32_MAX
-#elif UINT_MAX >= 0xffffffff
-#define WORD unsigned int
-#define WORD_MAX UINT_MAX
+#ifdef __MINGW32__
+# include <windef.h>
 #else
-#define WORD unsigned long
-#define WORD_MAX ULONG_MAX
+#  define UCHAR unsigned char
+#  if __STDC_VERSION__ >= 199901
+#   define WORD uint32_t
+#   define WORD_MAX UINT32_MAX
+#  elif UINT_MAX >= 0xffffffff
+#    define WORD unsigned int
+#    define WORD_MAX UINT_MAX
+#  else
+#    define WORD unsigned long
+#    define WORD_MAX ULONG_MAX
+#  endif
 #endif
 
 #if WORD_MAX == 0xffffffff
@@ -49,9 +53,9 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 typedef struct
 {
-	WORD R[N];		/* Working storage for the shift register */
-	WORD CRC[N];		/* Working storage for CRC accumulation */
-	WORD initR[N];		/* saved register contents */
+	WORD R[SHN_HEADER_N];		/* Working storage for the shift register */
+	WORD CRC[SHN_HEADER_N];		/* Working storage for CRC accumulation */
+	WORD initR[SHN_HEADER_N];		/* saved register contents */
 	WORD konst;		/* key dependent semi-constant */
 	WORD sbuf;		/* encryption buffer */
 	WORD mbuf;		/* partial word MAC buffer */
