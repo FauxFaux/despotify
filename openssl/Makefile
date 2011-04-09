@@ -13,8 +13,8 @@ SHLIB_MAJOR=1
 SHLIB_MINOR=0.0
 SHLIB_EXT=.dll.a
 PLATFORM=mingw
-OPTIONS= no-gmp no-jpake no-krb5 no-md2 no-rc5 no-rfc3779 no-shared no-store no-zlib no-zlib-dynamic static-engine
-CONFIGURE_ARGS=mingw
+OPTIONS=--prefix=/c/scm/despotify-build/openssl/../HOME no-gmp no-jpake no-krb5 no-md2 no-rc5 no-rfc3779 no-shared no-store no-zlib no-zlib-dynamic static-engine
+CONFIGURE_ARGS=mingw --prefix=/c/scm/despotify-build/openssl/../HOME
 SHLIB_TARGET=cygwin-shared
 
 # HERE indicates where this Makefile lives.  This can be used to indicate
@@ -26,10 +26,10 @@ HERE=.
 # for, say, /usr/ and yet have everything installed to /tmp/somedir/usr/.
 # Normally it is left empty.
 INSTALL_PREFIX=
-INSTALLTOP=/usr/local/ssl
+INSTALLTOP=/c/scm/despotify-build/openssl/../HOME
 
 # Do not edit this manually. Use Configure --openssldir=DIR do change this!
-OPENSSLDIR=/usr/local/ssl
+OPENSSLDIR=/c/scm/despotify-build/openssl/../HOME/ssl
 
 # NO_IDEA - Define to build without the IDEA algorithm
 # NO_RC4  - Define to build without the RC4 algorithm
