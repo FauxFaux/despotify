@@ -28,7 +28,6 @@ static int initialized;
 char *dns_srv_list (char *hostname)
 {
 	char *svr_list = NULL;
-    int i,j;
 	char *svr[10];
 	unsigned short svr_prio[10];
 	unsigned short svr_port[10];
@@ -94,8 +93,8 @@ char *dns_srv_list (char *hostname)
 	if (DnsQuery_A(hostname, DNS_TYPE_SRV, DNS_QUERY_STANDARD, NULL, &pRoot, NULL) != 0)
 		return NULL;
 
-	i = 0;
-	for (p = pRoot; pt != NULL && i < 10; p = p->pNext) {
+	int i = 0;
+	for (p = pRoot; p != NULL && i < 10; p = p->pNext) {
 		if(p->wType != DNS_TYPE_SRV)
 			continue;
 
@@ -105,13 +104,13 @@ char *dns_srv_list (char *hostname)
 	}
 
 	n_srv = i;
-	DnsRecordListFree(pRoot, DnsFreeRecordListDeep);
+	DnsRecordListFree(pRoot, DnsFreeRecordList);
 
     #endif
 
 	lowest_prio = 0;
 	for (i = 0; i < n_srv; i++) {
-		for (j = 0; j < n_srv; j++)
+		for (int j = 0; j < n_srv; j++)
 			if (svr_prio[lowest_prio] > svr_prio[j])
 				lowest_prio = j;
 		svr_list =

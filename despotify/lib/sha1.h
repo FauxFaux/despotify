@@ -9,6 +9,7 @@
 #ifndef _SHA1_H
 #define _SHA1_H
 
+#include "mingw.h"
 #include <sys/types.h>
 
 typedef struct {
@@ -17,7 +18,9 @@ typedef struct {
     unsigned char buffer[64];
 } SHA1_CTX;
 
+#ifndef __MINGW32__
 #include <sys/cdefs.h>
+#endif
 
 __BEGIN_DECLS
 void SHA1Transform(u_int32_t [5], const unsigned char [64]);

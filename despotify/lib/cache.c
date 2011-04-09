@@ -8,6 +8,7 @@
 
 #include "util.h"
 #include "cache.h"
+#include "mingw.h"
 
 char cache_directory[PATH_MAX];
 char cache_filename[PATH_MAX];

@@ -7,7 +7,9 @@
 #define DESPOTIFY_UTIL_H
 
 #include <pthread.h>
+#ifndef __MINGW32__
 #include <sys/times.h>
+#endif
 #include <unistd.h>
 
 #ifdef DEBUG

@@ -9,5 +9,6 @@
 *.dep
 *.mk
 lib
+!lib/
 buildinf.h
 rehash.time
