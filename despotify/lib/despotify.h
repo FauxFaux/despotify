@@ -180,6 +180,7 @@ struct despotify_session
     } aes;
 
     pthread_t thread;
+	bool thread_initialised;
 
     struct album_browse* album_browse;
     struct artist_browse* artist_browse;
