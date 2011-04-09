@@ -12,6 +12,10 @@
 #include "mingw.h"
 #include <sys/types.h>
 
+#ifdef __MINGW32__
+#  define u_int32_t unsigned int
+#endif
+
 typedef struct {
     u_int32_t state[5];
     u_int32_t count[2];
@@ -20,6 +24,9 @@ typedef struct {
 
 #ifndef __MINGW32__
 #include <sys/cdefs.h>
+#else
+#define u_char unsigned char
+#define u_int unsigned int
 #endif
 
 __BEGIN_DECLS
