@@ -1,0 +1,13 @@
+*.o
+*.exe
+*.bak
+*.pc
+*.a
+*.dll
+*.s
+*lo
+*.dep
+*.mk
+lib
+buildinf.h
+rehash.time
