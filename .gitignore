@@ -20,3 +20,5 @@ config_types.h
 libtool
 .libs
 *.la
+Doxyfile
+doxygen-build.stamp
