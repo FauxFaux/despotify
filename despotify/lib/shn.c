@@ -21,6 +21,12 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "shn.h"
 
 #define N SHN_HEADER_N
+#define WORD SHN_HEADER_WORD
+#define UCHAR SHN_HEADER_UCHAR
+#define WORD_MAX SHN_HEADER_WORD_MAX
+#define WORDSIZE SHN_HEADER_WORDSIZE
+#define ROTL SHN_HEADER_ROTL
+#define ROTR SHN_HEADER_ROTR
 
 /*
  * FOLD is how many register cycles need to be performed after combining the

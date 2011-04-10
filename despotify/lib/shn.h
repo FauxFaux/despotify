@@ -25,49 +25,45 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #endif
 
 #define SHN_HEADER_N 16
-#define WORDSIZE 32
+#define SHN_HEADER_WORDSIZE 32
 
-#ifdef __MINGW32__
-# include <windef.h>
+#define SHN_HEADER_UCHAR unsigned char
+#if __STDC_VERSION__ >= 199901
+# define SHN_HEADER_WORD uint32_t
+# define SHN_HEADER_WORD_MAX UINT32_MAX
+#elif UINT_MAX >= 0xffffffff
+#  define SHN_HEADER_WORD unsigned int
+#  define SHN_HEADER_WORD_MAX UINT_MAX
 #else
-#  define UCHAR unsigned char
-#  if __STDC_VERSION__ >= 199901
-#   define WORD uint32_t
-#   define WORD_MAX UINT32_MAX
-#  elif UINT_MAX >= 0xffffffff
-#    define WORD unsigned int
-#    define WORD_MAX UINT_MAX
-#  else
-#    define WORD unsigned long
-#    define WORD_MAX ULONG_MAX
-#  endif
+#  define SHN_HEADER_WORD unsigned long
+#  define SHN_HEADER_WORD_MAX ULONG_MAX
 #endif
 
 #if WORD_MAX == 0xffffffff
-#define ROTL(w,x) (((w) << (x))|((w) >> (32 - (x))))
-#define ROTR(w,x) (((w) >> (x))|((w) << (32 - (x))))
+#define SHN_HEADER_ROTL(w,x) (((w) << (x))|((w) >> (32 - (x))))
+#define SHN_HEADER_ROTR(w,x) (((w) >> (x))|((w) << (32 - (x))))
 #else
-#define ROTL(w,x) (((w) << (x))|(((w) & 0xffffffff) >> (32 - (x))))
-#define ROTR(w,x) ((((w) & 0xffffffff) >> (x))|((w) << (32 - (x))))
+#define SHN_HEADER_ROTL(w,x) (((w) << (x))|(((w) & 0xffffffff) >> (32 - (x))))
+#define SHN_HEADER_ROTR(w,x) ((((w) & 0xffffffff) >> (x))|((w) << (32 - (x))))
 #endif
 
 typedef struct
 {
-	WORD R[SHN_HEADER_N];		/* Working storage for the shift register */
-	WORD CRC[SHN_HEADER_N];		/* Working storage for CRC accumulation */
-	WORD initR[SHN_HEADER_N];		/* saved register contents */
-	WORD konst;		/* key dependent semi-constant */
-	WORD sbuf;		/* encryption buffer */
-	WORD mbuf;		/* partial word MAC buffer */
+	SHN_HEADER_WORD R[SHN_HEADER_N];		/* Working storage for the shift register */
+	SHN_HEADER_WORD CRC[SHN_HEADER_N];		/* Working storage for CRC accumulation */
+	SHN_HEADER_WORD initR[SHN_HEADER_N];		/* saved register contents */
+	SHN_HEADER_WORD konst;		/* key dependent semi-constant */
+	SHN_HEADER_WORD sbuf;		/* encryption buffer */
+	SHN_HEADER_WORD mbuf;		/* partial word MAC buffer */
 	int nbuf;		/* number of part-word stream bits buffered */
 } shn_ctx;
 
 /* interface definitions */
-void shn_key (shn_ctx * c, UCHAR key[], int keylen);	/* set key */
-void shn_nonce (shn_ctx * c, UCHAR nonce[], int nlen);	/* set Init Vector */
-void shn_stream (shn_ctx * c, UCHAR * buf, int nbytes);	/* stream cipher */
-void shn_maconly (shn_ctx * c, UCHAR * buf, int nbytes);	/* accumulate MAC */
-void shn_encrypt (shn_ctx * c, UCHAR * buf, int nbytes);	/* encrypt + MAC */
-void shn_decrypt (shn_ctx * c, UCHAR * buf, int nbytes);	/* decrypt + MAC */
-void shn_finish (shn_ctx * c, UCHAR * buf, int nbytes);	/* finalise MAC */
+void shn_key (shn_ctx * c, SHN_HEADER_UCHAR key[], int keylen);	/* set key */
+void shn_nonce (shn_ctx * c, SHN_HEADER_UCHAR nonce[], int nlen);	/* set Init Vector */
+void shn_stream (shn_ctx * c, SHN_HEADER_UCHAR * buf, int nbytes);	/* stream cipher */
+void shn_maconly (shn_ctx * c, SHN_HEADER_UCHAR * buf, int nbytes);	/* accumulate MAC */
+void shn_encrypt (shn_ctx * c, SHN_HEADER_UCHAR * buf, int nbytes);	/* encrypt + MAC */
+void shn_decrypt (shn_ctx * c, SHN_HEADER_UCHAR * buf, int nbytes);	/* decrypt + MAC */
+void shn_finish (shn_ctx * c, SHN_HEADER_UCHAR * buf, int nbytes);	/* finalise MAC */
 #endif /* _SHN_DEFINED */
