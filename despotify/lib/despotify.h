@@ -1,8 +1,16 @@
 #ifndef LIBDESPOTIFY_H
 #define LIBDESPOTIFY_H
 
-#include <pthread.h>
-#include <stdbool.h>
+#ifndef _MSC_VER
+#  include <pthread.h>
+#  include <stdbool.h>
+#else
+// to assist debugging only
+#  define pthread_t int64_t
+#  define pthread_mutex_t int64_t
+#  define pthread_cond_t int64_t
+#endif
+
 #include <time.h>
 
 #define STRING_LENGTH 256

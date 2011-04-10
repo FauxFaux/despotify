@@ -11,5 +11,3 @@ gcc libdespotify.def -shared -Wl,--out-implib,libdespotify.dll.a \
 
 cp libdespotify.dll.a $OUT
 cp libdespotify.dll $OUT/../bin
-cp libdespotify.dll /c/code/foo_input_spotify/foobar2000/
-
