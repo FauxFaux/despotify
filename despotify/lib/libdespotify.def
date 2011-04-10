@@ -1,0 +1,48 @@
+LIBRARY
+
+EXPORTS
+	despotify_init
+	despotify_cleanup
+	despotify_init_client
+	despotify_exit
+	despotify_authenticate
+	despotify_set_buffer_size
+	despotify_set_watermark
+	despotify_free
+	despotify_get_error
+	despotify_get_artist
+	despotify_get_album
+	despotify_get_tracks
+	despotify_get_track
+	despotify_get_image
+	despotify_free_artist_browse
+	despotify_free_album_browse
+	despotify_free_track
+	despotify_search
+	despotify_search_more
+	despotify_free_search
+	despotify_get_playlist(
+	despotify_get_stored_playlists
+	despotify_rename_playlist
+	despotify_set_playlist_collaboration
+	despotify_free_playlist
+	despotify_play
+	despotify_next
+	despotify_stop
+	despotify_get_current_track
+	despotify_get_pcm
+	despotify_link_from_uri
+	despotify_link_get_album
+	despotify_link_get_artist
+	despotify_link_get_playlist
+	despotify_link_get_search
+	despotify_link_get_track
+	despotify_free_link
+	despotify_album_to_uri
+	despotify_artist_to_uri
+	despotify_playlist_to_uri
+	despotify_search_to_uri
+	despotify_track_to_uri
+	despotify_id2uri
+	despotify_uri2id
+
