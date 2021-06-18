@@ -41,7 +41,7 @@
     <dependency>
       <groupId>org.domdrides</groupId>
       <artifactId>domdrides-jpa</artifactId>
-      <version>1.2</version>
+      <version>1.9</version>
     </dependency>
 
 
@@ -54,7 +54,7 @@
     <dependency>
       <groupId>org.hibernate</groupId>
       <artifactId>hibernate-annotations</artifactId>
-      <version>3.3.1.GA</version>
+      <version>3.4.0.GA</version>
     </dependency>
 
 
