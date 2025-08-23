@@ -41,7 +41,7 @@
     <dependency>
       <groupId>org.domdrides</groupId>
       <artifactId>domdrides-jpa</artifactId>
-      <version>1.2</version>
+      <version>1.9</version>
     </dependency>
 
 
